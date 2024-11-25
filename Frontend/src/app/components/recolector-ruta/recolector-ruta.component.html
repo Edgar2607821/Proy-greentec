@@ -1,0 +1,50 @@
+<section style="background-color: #393be4; min-height: 100vh;">
+    <nav>
+        <ul>
+            <!-- Enlace con routerLink para enrutamiento en Angular -->
+            <li>
+                <a routerLink="/" class="logo">
+                    <img class="logo1" src="assets/img/logo.jpeg" alt="Logo GreenTec">
+                    <span class="nav-item">GREENTEC</span>
+                </a>
+            </li>
+            <li>
+                <a routerLinkActive="active" [routerLink]="'/RecolectorHome'" >
+                    <i  class="fas fa-home"></i>
+                    <span class="nav-item">Principal</span>
+                </a>
+            </li>
+            <li>
+                <a routerLinkActive="active" [routerLink]="'/RecolectorRuta'" class="home" >
+                    <i style="color: #75b82e;" class="fas fa-map-marked-alt"></i>
+                    <span class="nav-item">Ruta</span> 
+                </a>
+            </li>
+            <li>
+                <a routerLinkActive="active" [routerLink]="'/RecolectorArchivo'" >
+                    <i class="fas fa-file"></i>
+                    <span class="nav-item">Archivo</span>
+                </a>
+            </li>
+
+            <li>
+                <!-- Evento click para salir -->
+                <a (click)="goToHome()" class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="nav-item">Salir</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+
+    <div class="bien">
+        <div class="credencial">
+            <h1>Rutas</h1>
+            <p>
+                Seccion de Rutas
+            </p>
+        </div>
+        <!-- Otros elementos de bienvenida pueden ir aquí -->
+    </div>

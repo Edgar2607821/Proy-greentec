@@ -1,0 +1,112 @@
+<section style="background-color: #393be4; min-height: 100vh;">
+    <nav>
+        <ul>
+            <!-- Enlace con routerLink para enrutamiento en Angular -->
+            <li>
+                <a routerLink="/" class="logo">
+                    <img class="logo1" src="assets/img/logo.jpeg" alt="Logo GreenTec">
+                    <span class="nav-item">GREENTEC</span>
+                </a>
+            </li>
+            <li>
+                <a routerLinkActive="active" [routerLink]="'/Usuariohome'" class="home" >
+                    <i style="color: #75b82e;" class="fas fa-home"></i>
+                    <span class="nav-item">Principal</span>
+                </a>
+            </li>
+            <li>
+                <a routerLinkActive="active" [routerLink]="'/Usuarioorden'">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span class="nav-item">Orden</span> 
+                </a>
+            </li>
+            <li>
+                <a routerLinkActive="active" [routerLink]="'/Usuarioperfil'" >
+                    <i class="fas fa-file"></i>
+                    <span class="nav-item">Mi perfil</span>
+                </a>
+            </li>
+
+            <li>
+                <!-- Evento click para salir -->
+                <a (click)="goToHome()" class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="nav-item">Salir</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+<section>
+    <form method="post" class="two-column-form">
+        <h1>Mi Perfil</h1>
+        <br>
+
+        <div class="column">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" readonly>
+        </div>
+        <div class="column">
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" readonly>
+        </div>
+        <div class="column">
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad">
+        </div>
+        <div class="column">
+            <label for="sexo">Sexo:</label>
+            <select id="sexo" name="sexo">
+                <option value="Femenino">Femenino</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Otro">Otro</option>
+            </select>
+        </div>
+        <div class="column">
+            <label for="estado">Estado:</label>
+            <input type="text" id="estado" name="estado">
+        </div>
+        <div class="column">
+            <label for="municipio">Municipio:</label>
+            <input type="text" id="municipio" name="municipio">
+        </div>
+        <div class="column">
+            <label for="cp">Código Postal:</label>
+            <input type="text" id="cp" name="cp">
+        </div>
+        <div class="column">
+            <label for="calle">Calle:</label>
+            <input type="text" id="calle" name="calle">
+        </div>
+        <div class="column">
+            <label for="nExt">Número Exterior:</label>
+            <input type="text" id="nExt" name="nExt">
+        </div>
+        <div class="column">
+            <label for="nInt">Número Interior:</label>
+            <input type="text" id="nInt" name="nInt">
+        </div>
+        <div class="column">
+            <label for="colonia">Colonia:</label>
+            <input type="text" id="colonia" name="colonia">
+        </div>
+        <div class="column">
+            <label for="correo">Correo:</label>
+            <input type="text" id="correo" name="correo" readonly>
+        </div>
+        <div class="column">
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" name="telefono">
+        </div>
+        <div class="column">
+            <label for="referencias">Referencias:</label>
+            <textarea id="referencias" name="referencias"></textarea>
+        </div >
+        <div class="column">
+            <button type="submit">Guardar</button>
+
+        </div>
+        
+    </form>
+</section>
+

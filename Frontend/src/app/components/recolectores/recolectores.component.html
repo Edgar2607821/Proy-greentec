@@ -1,0 +1,118 @@
+<section style="background-color: #393be4; min-height: 100vh;">
+    <nav>
+        <ul>
+            <!-- Enlace con routerLink para enrutamiento en Angular -->
+            <li>
+                <a routerLink="/" class="logo">
+                    <img class="logo1" src="assets/img/logo.jpeg" alt="Logo GreenTec">
+                    <span class="nav-item">GREENTEC</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/Principal" routerLinkActive="active" class="home">
+                    <i class="fas fa-home"></i>
+                    <span class="nav-item">Principal</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/Usuarios" routerLinkActive="active" class="home">
+                    <i class="fas fa-users"></i>
+                    <span class="nav-item">Usuarios</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/Recolectores" routerLinkActive="active" class="home">
+                    <i class="fas fa-user-shield"></i>
+                    <span class="nav-item">Recolectores</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/Rutas" routerLinkActive="active" class="home">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span class="nav-item">Rutas</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/Productos" routerLinkActive="active" class="home">
+                    <i class="fas fa-box-open"></i>
+                    <span class="nav-item">Productos</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/Catalogo" routerLinkActive="active" class="home">
+                    <i class="fas fa-book"></i>
+                    <span class="nav-item">Catálogo</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/AsignarRutas" routerLinkActive="active" class="home">
+                    <i class="fas fa-user-plus"></i>
+                    <span class="nav-item">Asignar Rutas</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/Estadisticas" routerLinkActive="active" class="home">
+                    <i class="fas fa-chart-bar"></i>
+                    <span class="nav-item">Estadísticas</span>
+                </a>
+            </li>
+            <li>
+                <!-- Evento click para salir -->
+                <a (click)="goToHome()" class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="nav-item">Salir</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="bien">
+        <h1>Lista de Recolectores</h1>
+        <br>
+        <div class="table-container">
+            <table border="1" id="catalogTable">
+                <thead>
+                    <tr>
+                        <th>Nombre<br><input type="text" placeholder="Filtrar..."></th>
+                        <th>Apellidos<br><input type="text" placeholder="Filtrar..."></th>
+                        <th>Edad<br><input type="text" placeholder="Filtrar..."></th>
+                        <th>Sexo<br><input type="text" placeholder="Filtrar..."></th>
+                        <th>Correo<br><input type="text" placeholder="Filtrar..."></th>
+                        <th>Departamento<br><input type="text" placeholder="Filtrar..."></th>
+                        <th>Puesto<br><input type="text" placeholder="Filtrar..."></th>
+                        <th>Fecha de Ingreso<br><input type="text" placeholder="Filtrar..."></th>
+                        <th>Número de Teléfono<br><input type="text" placeholder="Filtrar..."></th>
+                        <th>Gestión de Empleados</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nombre del Empleado</td>
+                        <td>Apellidos del Empleado</td>
+                        <td>Edad</td>
+                        <td>Sexo</td>
+                        <td>Correo</td>
+                        <td>Departamento</td>
+                        <td>Puesto</td>
+                        <td>Fecha de Ingreso</td>
+                        <td>Número de Teléfono</td>
+                        <td>
+                            <button class="buttonEdit">
+                                Editar
+                            </button>
+                            <button class="buttonElim">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="contadd">
+            <button class="buttonAdd">
+                Añadir
+            </button>
+        </div>
+    </div>
+
+

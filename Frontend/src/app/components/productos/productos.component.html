@@ -1,0 +1,108 @@
+<section style="background-color: #393be4; min-height: 100vh;">
+    <nav>
+        <ul>
+            <!-- Enlace con routerLink para enrutamiento en Angular -->
+            <li>
+                <a routerLink="/" class="logo">
+                    <img class="logo1" src="assets/img/logo.jpeg" alt="Logo GreenTec">
+                    <span class="nav-item">GREENTEC</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/Principal" routerLinkActive="active" class="home">
+                    <i class="fas fa-home"></i>
+                    <span class="nav-item">Principal</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/Usuarios" routerLinkActive="active" class="home">
+                    <i class="fas fa-users"></i>
+                    <span class="nav-item">Usuarios</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/Recolectores" routerLinkActive="active" class="home">
+                    <i class="fas fa-user-shield"></i>
+                    <span class="nav-item">Recolectores</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/Rutas" routerLinkActive="active" class="home">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span class="nav-item">Rutas</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/Productos" routerLinkActive="active" class="home">
+                    <i class="fas fa-box-open"></i>
+                    <span class="nav-item">Productos</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/Catalogo" routerLinkActive="active" class="home">
+                    <i class="fas fa-book"></i>
+                    <span class="nav-item">Catálogo</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/AsignarRutas" routerLinkActive="active" class="home">
+                    <i class="fas fa-user-plus"></i>
+                    <span class="nav-item">Asignar Rutas</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/Estadisticas" routerLinkActive="active" class="home">
+                    <i class="fas fa-chart-bar"></i>
+                    <span class="nav-item">Estadísticas</span>
+                </a>
+            </li>
+            <li>
+                <!-- Evento click para salir -->
+                <a (click)="goToHome()" class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="nav-item">Salir</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+<div class="bien">
+    <h1>Lista de Ventas</h1>
+    <table id="catalogTable">
+        <thead>
+            <tr>
+                <th>Usuario<br><input type="text" placeholder="Filtrar..."></th>
+                <th>Dispositivo<br><input type="text" placeholder="Filtrar..."></th>
+                <th>Tipo<br><input type="text" placeholder="Filtrar..."></th>
+                <th>Marca<br><input type="text" placeholder="Filtrar..."></th>
+                <th>Modelo<br><input type="text" placeholder="Filtrar..."></th>
+                <th>Año de Fabricación<br><input type="text" placeholder="Filtrar..."></th>
+                <th>Fecha<br><input type="text" placeholder="Filtrar..."></th>
+                <th>Estado<br><input type="text" placeholder="Filtrar..."></th>
+                <th>Descripción<br><input type="text" placeholder="Filtrar..."></th>
+                <th>Peso (kg)<br><input type="text" placeholder="Filtrar..."></th>
+                <th>Pago<br><input type="text" placeholder="Filtrar..."></th>
+                <th>Gestión de Ventas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Usuario Nombre Apellidos</td>
+                <td>Dispositivo</td>
+                <td>Tipo</td>
+                <td>Marca</td>
+                <td>Modelo</td>
+                <td>Año de Fabricación</td>
+                <td>Fecha</td>
+                <td>Estado</td>
+                <td>Descripción</td>
+                <td>Peso (kg)</td>
+                <td>Pago</td>
+                <td>
+                    <button class="buttonElim">
+                        Eliminar
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

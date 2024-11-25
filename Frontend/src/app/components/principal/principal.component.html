@@ -1,0 +1,92 @@
+
+    <section style="background-color: #393be4; min-height: 100vh;">
+        <nav>
+            <ul>
+                <!-- Enlace con routerLink para enrutamiento en Angular -->
+                <li>
+                    <a routerLink="/" class="logo">
+                        <img class="logo1" src="assets/img/logo.jpeg" alt="Logo GreenTec">
+                        <span class="nav-item">GREENTEC</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive="active" [routerLink]="'/Principal'" class="home">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item">Principal</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive="active" [routerLink]="'/Usuarios'" class="home">
+                        <i class="fas fa-users"></i>
+                        <span class="nav-item">Usuarios</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive="active" [routerLink]="'/Recolectores'" class="home">
+                        <i class="fas fa-user-shield"></i>
+                        <span class="nav-item">Recolectores</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive="active" [routerLink]="'/Rutas'" class="home">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span class="nav-item">Rutas</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive="active" [routerLink]="'/Productos'" class="home">
+                        <i class="fas fa-box-open"></i>
+                        <span class="nav-item">Productos</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive="active" [routerLink]="'/Catalogo'" class="home">
+                        <i class="fas fa-book"></i>
+                        <span class="nav-item">Catálogo</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive="active" [routerLink]="'/AsignarRutas'" class="home">
+                        <i class="fas fa-user-plus"></i>
+                        <span class="nav-item">Asignar Rutas</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive="active" [routerLink]="'/Estadixsticas'" class="home">
+                        <i class="fas fa-chart-bar"></i>
+                        <span class="nav-item">Estadísticas</span>
+                    </a>
+                </li>
+                <li>
+                    <!-- Evento click para salir -->
+                    <a (click)="goToHome()" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Salir</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    
+
+    <div class="bien">
+        <div class="credencial">
+            <h1>¡Bienvenido admin!</h1>
+            <p>
+                En GreenTec, estamos comprometidos con la protección del medio ambiente y la 
+                profmoción de un futuro más sostenible. Como parte de nuestra comunidad, te damos 
+                la bienvenida a bordo para formar parte de esta importante misión.
+            </p>
+        </div>
+        <!-- Otros elementos de bienvenida pueden ir aquí -->
+    </div>
+
+    <!-- Agregar scripts si son necesarios -->
+
+
+
+
+
+
+
+
+

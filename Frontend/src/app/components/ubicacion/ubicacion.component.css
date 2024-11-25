@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;1,800&family=Poetsen+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;1,800&family=Freeman&family=Poetsen+One&display=swap');
+
+.ubicación {
+    width: 1400px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    border-radius: 10px;
+    background: #75b82e;
+    box-shadow: 0px 0px 20px 0px #000000;
+}
+
+.ubicación-map {
+    width: 680px;
+    height: 580px;
+    padding: 20px;
+}
+
+.ubicación-map iframe {
+    width: 100%;
+    height: 100%;
+
+}
+
+.ubicación-info {
+    width: 680px;
+    height: 580px;
+    padding: 20px;
+}
+
+.ubicación-info h3 {
+    font-family: "Freeman", sans-serif;
+    text-align: center;
+    color: #ffff;
+    font-size: 40px;
+}
+
+.ubicación-info p {
+    font-family: 'Nunito', sans-serif;
+    color: #ffff;
+    font-size: 30px;
+}
+
+
+.ubic {
+    margin-top: 50px;
+    margin-left: 240px;
+    margin-right: auto;
+    width: 200px;
+}

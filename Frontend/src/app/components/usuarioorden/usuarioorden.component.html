@@ -1,0 +1,111 @@
+<section style="background-color: #393be4; min-height: 100vh;">
+    <nav>
+        <ul>
+            <!-- Enlace con routerLink para enrutamiento en Angular -->
+            <li>
+                <a routerLink="/" class="logo">
+                    <img class="logo1" src="assets/img/logo.jpeg" alt="Logo GreenTec">
+                    <span class="nav-item">GREENTEC</span>
+                </a>
+            </li>
+            <li>
+                <a routerLinkActive="active" [routerLink]="'/Usuariohome'" class="home" >
+                    <i style="color: #75b82e;" class="fas fa-home"></i>
+                    <span class="nav-item">Principal</span>
+                </a>
+            </li>
+            <li>
+                <a routerLinkActive="active" [routerLink]="'/Usuarioorden'">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span class="nav-item">Orden</span> 
+                </a>
+            </li>
+            <li>
+                <a routerLinkActive="active" [routerLink]="'/Usuarioperfil'" >
+                    <i class="fas fa-file"></i>
+                    <span class="nav-item">Mi perfil</span>
+                </a>
+            </li>
+
+            <li>
+                <!-- Evento click para salir -->
+                <a (click)="goToHome()" class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="nav-item">Salir</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+<section>
+    <form name="formVenta" id="formVenta">
+        <div class="row mt-5 justify-content-center mb-5">
+            <div class="column">
+                <label for="Dispositivos">Dispositivos</label>
+                <select class="form-control" name="Dispositivos" id="Dispositivos">
+                    <option *ngFor="let dispositivo of dispositivos" [value]="dispositivo.id">{{ dispositivo.nombre }}</option>
+                </select>
+            </div> 
+            <div class="column">
+                <label for="Tipos">Tipos</label>
+                <select class="form-control" name="Tipos" id="Tipos">
+                    <option value="">Seleccione</option>
+                </select>
+            </div>
+            <div class="column">
+                <label for="Marcas">Marcas</label>
+                <select class="form-control" name="Marcas" id="Marcas">
+                    <option value="">Seleccione</option>
+                </select>
+            </div>
+
+            <div class="column">
+                <label for="Modelos">Modelos</label>
+                <select class="form-control" name="Modelos" id="Modelos">
+                    <option value="">Seleccione</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mt-5 justify-content-center mb-5">
+            <div class="column">
+                <label for="pago">Precio (kg):</label>
+                <input type="number" step="0.01" class="form-control" name="pago" id="pago" readonly>
+            </div>
+
+            <div class="column">
+                <label for="AnioFab">Año de Fabricación:</label>
+                <input type="date" class="form-control" name="AnioFab" id="AnioFab">
+            </div>
+
+            <div class="column">
+                <label for="EstadoP">Estado:</label>
+                <select class="form-control" name="EstadoP" id="EstadoP">
+                    <option value="Nuevo">Nuevo</option>
+                    <option value="Usado">Usado</option>
+                    <option value="Descompuesto">Descompuesto</option>
+                </select>
+            </div>
+
+            <div class="column">
+                <label for="descripcion">Descripción:</label>
+                <textarea class="form-control" name="descripcion" id="descripcion" rows="3"></textarea>
+            </div>
+
+            <div class="column">
+                <label for="peso">Peso (kg):</label>
+                <input type="number" step="0.01" class="form-control" name="peso" id="peso">
+            </div>
+        </div>
+
+        <div class="row mt-5 justify-content-center mb-5">
+            <div class="column">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="column">
+        <p>Ventas acumuladas: <span>{{ ventasAcumuladas }}</span></p>
+        <p>Peso acumulado: <span>{{ pesoAcumulado }}</span></p>
+    </div>
+</section>

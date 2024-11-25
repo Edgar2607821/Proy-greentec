@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"); 
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;1,800&family=Poetsen+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;1,800&family=Freeman&family=Poetsen+One&display=swap');
+
+
+.bien {
+    width: 1500px;
+    height: 900px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 0px 10px rgb(105, 105, 105);
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+
+}
+.table-container {
+    max-height: 700px; /* Ajusta la altura máxima según tus necesidades */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    text-align: justify;
+}
+
+th {
+    font-family: "Freeman", sans-serif;
+    font-size: 25px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+td {
+    font-size: 20px;
+    font-family: 'Nunito', sans-serif;
+}
+
+
+.buttonEdit {
+    display: inline-block;
+    padding: 10px 20px;
+    /* Espaciado interno */
+    font-size: 18px;
+    /* Tamaño de fuente */
+    color: #ffffff;
+    /* Color del texto */
+    background-color: #393be4;
+    /* Color de fondo */
+    border: none;
+    /* Sin borde */
+    border-radius: 15px;
+    /* Bordes redondeados */
+    text-decoration: none;
+    /* Sin subrayado */
+    transition: background-color 0.3s, transform 0.3s;
+    /* Transiciones para hover y clic */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra */
+    font-family: "Poetsen One", sans-serif;
+    margin: 2px;
+    width: 150px;
+}
+
+/* Estilos para el botón al pasar el cursor sobre él */
+.buttonEdit:hover {
+    background-color: #2a2dac;
+    color: white;
+    border-color: #2a2dac;
+}
+
+/* Estilos para el botón cuando está activo */
+.buttonEdit:active {
+    background-color: #171861;
+    color: white;
+    border-color: #171861;
+}
+
+.buttonElim {
+    width: 150px;
+    display: inline-block;
+    padding: 10px 15px;
+    /* Espaciado interno */
+    font-size: 18px;
+    /* Tamaño de fuente */
+    color: #ffffff;
+    /* Color del texto */
+    background-color: #ec3b3b;
+    /* Color de fondo */
+    border: none;
+    /* Sin borde */
+    border-radius: 15px;
+    /* Bordes redondeados */
+    text-decoration: none;
+    /* Sin subrayado */
+    transition: background-color 0.3s, transform 0.3s;
+    /* Transiciones para hover y clic */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra */
+    font-family: "Poetsen One", sans-serif;
+    margin: 2px;
+}
+
+/* Estilos para el botón al pasar el cursor sobre él */
+.buttonElim:hover {
+    background-color: #942525;
+    color: white;
+    border-color: #942525;
+}
+
+/* Estilos para el botón cuando está activo */
+.buttonElim:active {
+    background-color: #5f1717;
+    color: white;
+    border-color: #5f1717;
+}
+
+.buttonAdd {
+    width: 200px;
+    display: inline-block;
+    padding: 10px 15px;
+    /* Espaciado interno */
+    font-size: 18px;
+    /* Tamaño de fuente */
+    color: #ffffff;
+    /* Color del texto */
+    background-color: #75b82e;
+    /* Color de fondo */
+    border: none;
+    /* Sin borde */
+    border-radius: 15px;
+    /* Bordes redondeados */
+    text-decoration: none;
+    /* Sin subrayado */
+    transition: background-color 0.3s, transform 0.3s;
+    /* Transiciones para hover y clic */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra */
+    font-family: "Poetsen One", sans-serif;
+    margin: 2px;
+    
+
+}
+
+/* Estilos para el botón al pasar el cursor sobre él */
+.buttonAdd:hover {
+    background-color: #588a22;
+    color: white;
+    border-color: #588a22;
+}
+
+/* Estilos para el botón cuando está activo */
+.buttonAdd:active {
+    background-color: #345214;
+    color: white;
+    border-color: #345214;
+}
+
+.contadd {
+    display: flex;
+    justify-content: flex-start; /* Ajusta esto según sea necesario (flex-start, center, flex-end) */
+    flex-wrap: wrap; /* Permite que los botones se envuelvan si el espacio es insuficiente */
+    gap: 10px; /* Espacio entre los botones */
+    margin: 10px 0; /* Espaciado externo superior e inferior */
+}
+
+h1 {
+    font-family: "Freeman", sans-serif;
+}
+
+input[type="text"], select {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins" sans-serif;
+}
+
+
+img{
+    width: 100%;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    background: #ffffff;
+    width: 90px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    z-index: 2; /* Ajusta este valor según sea necesario */
+    font-family: "Poetsen One", sans-serif;
+}
+
+
+
+
+.logo{
+    text-align: center;
+    display: flex;
+    transition: all 0.5s ease;
+    margin: 10px 0 0 10px;
+}
+
+.logo img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.logo span{
+    font-weight: bold;
+    padding-left: 15px;
+    font-size: 30px;
+    text-transform: uppercase;
+    
+    
+}
+
+a{
+    position: relative;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    display: table;
+    width: 300px;
+    padding: 10px;
+
+}
+
+
+a:hover{
+    color: #75b82e;
+}
+
+.material-symbols-outlined{
+    
+    position: relative;
+    width: 70px;
+    height: 50px;
+    top: 14px;
+    font-size: 70px;
+    text-align: center;
+    color: #000000;
+}
+
+.material-symbols-outlined:hover{
+    color: #75b82e;
+}
+
+.fas{
+    position: relative;
+    width: 70px;
+    height: 50px;
+    top: 14px;
+    font-size: 35px;
+    text-align: center;
+    color: #000000;
+}
+
+.fas:hover{
+    color: #75b82e;
+}
+
+.nav-item{
+    position: relative;
+    top: 12px;
+    margin-left: 10px;
+}
+
+a:hover{
+    background: #eee;
+}
+
+nav:hover{
+    width: 300px;
+    transition: all 0.5s ease;
+}
+
+.logout{
+    position: absolute;
+    bottom: 0;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    margin-left: 80px;
+    position: relative;
+    z-index: 1; /* Ajusta este valor según sea necesario */
+}
+
+/* Estilos para la tabla */
+table {
+    border-collapse: collapse;
+    width: 30%;
+}
+
+th, td {
+    border: 1px solid #949494;
+    
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+td {
+    color: #242424;
+    text-align: left;
+}
+
+

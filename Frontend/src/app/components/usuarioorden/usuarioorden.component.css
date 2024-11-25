@@ -1,0 +1,286 @@
+    /* styles.css */
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+    form {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+        font-family: 'Nunito', sans-serif;
+        font-size: 25px;
+        height: 900px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .column {
+        width: 50%;
+        padding: 0 10px;
+        box-sizing: border-box;
+        float: left;
+    }
+
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    select {
+        width: calc(100% - 20px);
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 20px;
+    }
+
+    input[type="submit"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-top: 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    button[type="submit"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-top: 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 16px; /* Ajusta el tamaño del texto del botón */
+    }
+
+    button[type="submit"]:hover {
+        background-color: rgb(117, 184, 46) ;
+    }
+
+    /* Estilos adicionales para el botón "Guardar" */
+    button[type="submit"] {
+        text-transform: uppercase; /* Convierte el texto a mayúsculas */
+        font-weight: bold; /* Hace que el texto sea más grueso */
+    }
+    textarea{
+        width: calc(100% - 20px);
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 20px;
+    }
+
+    /* Estilos para el campo de entrada de tipo date */
+input[type="date"] {
+    padding: 8px; /* Ajusta el relleno */
+    border: 1px solid #ccc; /* Añade un borde */
+    border-radius: 5px; /* Añade bordes redondeados */
+    box-sizing: border-box; /* Hace que el tamaño total incluya el relleno y el borde */
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+/* Estilos adicionales para cuando el campo está enfocado */
+input[type="date"]:focus {
+    outline: none; /* Quita el contorno */
+    border-color: #4CAF50; /* Cambia el color del borde */
+    box-shadow: 0 0 5px #4CAF50; /* Añade una sombra alrededor del campo */
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"); 
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;1,800&family=Poetsen+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;1,800&family=Freeman&family=Poetsen+One&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins" sans-serif;
+}
+
+
+img{
+    width: 100%;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    background: #ffffff;
+    width: 90px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    z-index: 2; /* Ajusta este valor según sea necesario */
+    font-family: "Poetsen One", sans-serif;
+}
+
+
+
+
+.logo{
+    text-align: center;
+    display: flex;
+    transition: all 0.5s ease;
+    margin: 10px 0 0 10px;
+}
+
+.logo img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.logo span{
+    font-weight: bold;
+    padding-left: 15px;
+    font-size: 30px;
+    text-transform: uppercase;
+    
+    
+}
+
+a{
+    position: relative;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    display: table;
+    width: 300px;
+    padding: 10px;
+
+}
+
+
+a:hover{
+    color: #75b82e;
+}
+
+.material-symbols-outlined{
+    
+    position: relative;
+    width: 70px;
+    height: 50px;
+    top: 14px;
+    font-size: 70px;
+    text-align: center;
+    color: #000000;
+}
+
+.material-symbols-outlined:hover{
+    color: #75b82e;
+}
+
+.fas{
+    position: relative;
+    width: 70px;
+    height: 50px;
+    top: 14px;
+    font-size: 35px;
+    text-align: center;
+    color: #000000;
+}
+
+.fas:hover{
+    color: #75b82e;
+}
+
+.nav-item{
+    position: relative;
+    top: 12px;
+    margin-left: 10px;
+}
+
+a:hover{
+    background: #eee;
+}
+
+nav:hover{
+    width: 300px;
+    transition: all 0.5s ease;
+}
+
+.logout{
+    position: absolute;
+    bottom: 0;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    margin-left: 80px;
+    position: relative;
+    z-index: 1; /* Ajusta este valor según sea necesario */
+}
+
+/* Estilos para la tabla */
+table {
+    border-collapse: collapse;
+    width: 30%;
+}
+
+th, td {
+    border: 1px solid #949494;
+    
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+td {
+    color: #242424;
+    text-align: left;
+}
+.column p {
+    font-family: 'Nunito', sans-serif; /* Utiliza la fuente definida */
+    font-size: 20px; /* Tamaño de fuente consistente con el resto del formulario */
+    margin-bottom: 10px; /* Espaciado inferior */
+    font-weight: bold; /* Hace que el texto sea más destacado */
+    color: #ffffff; /* Color blanco para contrastar con el fondo oscuro */
+    text-align: right; /* Alineación a la derecha */
+    margin-right: 800px; /
+}
+
+.column span {
+    color: #75b82e; /* Color verde similar al botón de enviar */
+    font-weight: 800; /* Hace que el texto del span sea más grueso */
+}
+
