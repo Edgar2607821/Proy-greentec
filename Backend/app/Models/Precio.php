@@ -14,5 +14,5 @@ class Precio extends Model
     public function modelo()
     {
         return $this->belongsTo(Modelo::class);
-    }
+    } 
 }

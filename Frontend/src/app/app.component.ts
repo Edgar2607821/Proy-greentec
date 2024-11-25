@@ -16,11 +16,11 @@ import { RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,RouterLink,RouterLinkActive, LoginComponent, NgIf, AdminComponent, QuienesSomosComponent, 
+  imports: [RouterOutlet,RouterLink,RouterLinkActive, LoginComponent, NgIf, AdminComponent, QuienesSomosComponent,
             BeneficiosComponent, ServiciosComponent, UbicacionComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  
+
 })
 export class AppComponent {
   title = 'GREENTEC';

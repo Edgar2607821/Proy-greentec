@@ -7,27 +7,53 @@ use Illuminate\Http\Request;
 class ClienteAuthController extends Controller
 {
     //
-    public function showLoginForm()
+    // Registro de usuario
+    public function register(Request $request)
     {
-        return view('auth.login_cliente'); // Vista de login para clientes
+        // Validar datos del formulario
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'apellidos' => 'required|string|max:255',
+            'sexo' => 'required|in:M,F,O',
+            'correo' => 'required|string|email|max:255|unique:clientes',
+            'contra' => 'required|string|min:6|confirmed', // Verifica contraseña y confirmación
+        ]);
+
+        // Crear cliente
+        $cliente = Cliente::create([
+            'nombre' => $request->nombre,
+            'apellidos' => $request->apellidos,
+            'sexo' => $request->sexo,
+            'correo' => $request->correo,
+            'contra' => Hash::make($request->contra), // Hashear contraseña
+        ]);
+
+        return response()->json([
+            'message' => 'Usuario registrado exitosamente',
+            'cliente' => $cliente,
+        ], 201);
     }
 
     public function login(Request $request)
     {
-        $credentials = $request->only('correo', 'password');
-        
-        if (Auth::guard('cliente')->attempt($credentials)) {
-            return redirect()->route('cliente.dashboard'); // Redirige al dashboard de cliente
+        $validatedData = $request->validate([
+            'correo' => 'required|string|email|max:30',
+            'contra' => 'required|string',
+        ]);
+
+        $cliente = Cliente::where('correo', $validatedData['correo'])->first();
+
+        if (!$cliente || !Hash::check($validatedData['contra'], $cliente->contra)) {
+            return response()->json(['message' => 'Credenciales inválidas'], 401);
         }
 
-        return back()->withErrors([
-            'correo' => 'Las credenciales no coinciden.',
-        ]);
-    }
+        // Generar un token (si usas Laravel Sanctum o JWT)
+        $token = $cliente->createToken('auth_token')->plainTextToken;
 
-    public function logout()
-    {
-        Auth::guard('cliente')->logout();
-        return redirect('/');
+        return response()->json([
+            'message' => 'Inicio de sesión exitoso',
+            'token' => $token,
+            'cliente' => $cliente,
+        ]);
     }
 }

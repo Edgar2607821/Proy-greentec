@@ -15,9 +15,4 @@ class TipoDisp extends Model
     {
         return $this->belongsTo(Dispositivo::class);
     }
-
-    public function marcas()
-    {
-        return $this->hasMany(Marca::class);
-    }
 }

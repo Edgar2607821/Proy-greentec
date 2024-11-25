@@ -16,9 +16,4 @@ class Marca extends Model
         return $this->belongsTo(TipoDisp::class);
     }
 
-    public function modelos()
-    {
-        return $this->hasMany(Modelo::class);
-    }
-
 }

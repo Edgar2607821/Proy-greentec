@@ -7,10 +7,10 @@
             <div class="col col-xl-10">
                 <div class="card" style="border-radius: 1rem;">
                     <div class="row g-0">
-                        
+
                         <div class="col-md-6 col-lg-5 d-none d-md-block">
                             <a (click)="goToHome()" style="cursor: pointer;"><img src="assets/img/volver.png" alt="" style="padding: 30px;"></a>
-                            
+
                             <span class="h1 fw-bold mb-0"><img src="assets/img/Greentec.jpg"
                                         style="width: 200px; margin-top: 80px;"  ></span>
                             <img src="assets/img/registrando.png" style="width: 400px; margin-top: 30px;" />
@@ -18,33 +18,33 @@
                         </div>
                         <div class="col-md-6 col-lg-7 d-flex align-items-center">
                             <div class="card-body p-4 p-lg-5 text-black">
-                                <form>
+                                <form (ngSubmit)="register()">
                                     <h4 class="Iniciar" style="letter-spacing: 1px;">Registrarte</h4>
 
                                     <div class="form-outline mb-4">
                                         <label for="nombre">Nombre:</label>
                                         <input type="text" id="nombre" formControlName="nombre"
                                             class="form-control form-control-lg" placeholder="Nombre(s)" required>
-                                        <!-- 
+                                        <!--
                                             <div *ngIf="registerForm.get('nombre')?.invalid && registerForm.get('nombre')?.touched"
                                             class="text-danger">
                                             Nombre es requerido.
                                         </div>
                                             -->
-                                        
+
                                     </div>
 
                                     <div class="form-outline mb-4">
                                         <label for="apellidos">Apellidos:</label>
                                         <input type="text" id="apellidos" formControlName="apellidos"
                                             class="form-control form-control-lg" placeholder="Apellido(s)" required>
-                                        <!-- 
+                                        <!--
                                             <div *ngIf="registerForm.get('apellidos')?.invalid && registerForm.get('apellidos')?.touched"
                                             class="text-danger">
                                             Apellidos son requeridos.
                                         </div>
                                             -->
-                                            
+
                                     </div>
 
                                     <div class="form-outline mb-4">
@@ -59,8 +59,8 @@
                                             class="text-danger">
                                             Seleccionar sexo es requerido.
                                         </div>-->
-                                        
-                                        
+
+
                                     </div>
 
                                     <div class="form-outline mb-4">
@@ -69,13 +69,13 @@
                                             class="form-control form-control-lg" placeholder="Correo electrónico"
                                             required>
 
-                                            <!-- 
+                                            <!--
                                             <div *ngIf="registerForm.get('correo')?.invalid && registerForm.get('correo')?.touched"
                                             class="text-danger">
                                             Correo válido es requerido.
                                         </div>
                                             -->
-                                        
+
                                     </div>
 
                                     <div class="form-outline mb-4">
@@ -102,7 +102,7 @@
                                             class="text-danger">
                                             Las contraseñas no coinciden.
                                         </div> -->
-                                        
+
                                     </div>
 
                                     <button class="login-button btn btn-dark btn-lg btn-block" type="submit">Registrarse</button>

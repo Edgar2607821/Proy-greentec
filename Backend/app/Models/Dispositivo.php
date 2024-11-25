@@ -9,15 +9,5 @@ class Dispositivo extends Model
     //
     use HasFactory;
 
-    protected $fillable = ['nombre'];
-
-    public function tipos()
-    {
-        return $this->hasMany(TipoDisp::class);
-    }
-
-    public function catalogos()
-    {
-        return $this->hasMany(Catalogo::class);
-    }
+    protected $fillable = ['nombre']; // Campos que se pueden asignar en masa
 }

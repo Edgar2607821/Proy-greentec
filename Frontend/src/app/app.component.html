@@ -1,9 +1,9 @@
-<ng-container *ngIf="router.url !== '/login' && router.url !== '/admin' && router.url !== '/LoginEmpleado'  && router.url 
+<ng-container *ngIf="router.url !== '/login' && router.url !== '/admin' && router.url !== '/LoginEmpleado'  && router.url
                 !== '/LoginAdmin' && router.url !== '/Principal' && router.url !== '/Usuarios' && router.url !== '/Recolectores' && router.url !== '/Registro'
                 && router.url !== '/Rutas' && router.url !== '/Productos' && router.url !== '/RecolectorHome'
                 && router.url !== '/Catalogo' && router.url !== '/AsignarRutas' && router.url !== '/Estadisticas' && router.url !== '/RecolectorRuta' && router.url !== '/RecolectorArchivo'
                 && router.url !== '/Usuariohome' && router.url !== '/Usuarioorden' && router.url !== '/Usuarioperfil'">
-                
+
   <header class="header">
     <div class="logo">
       <img src="assets/img/Greentec.png" alt="">
@@ -17,7 +17,7 @@
       </ul>
     </nav>
     <a class="btn" (click)="goToLogin()"><button>Iniciar Sesión</button></a>
-    <a class="btn" (click)="goToRegistro()"><button>Registrarte</button></a>
+    <a class="btn" routerLinkActive="active" [routerLink]="'/Registro'"><button>Registrarte</button></a>
   </header>
 </ng-container>
 <router-outlet></router-outlet>

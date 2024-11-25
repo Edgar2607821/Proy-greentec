@@ -8,34 +8,15 @@ import { catchError } from 'rxjs';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:8000/api'; // Ajusta a la URL de tu API
+  private apiUrl = 'http://localhost:8000/api'; // Cambia según tu configuración
 
   constructor(private http: HttpClient) {}
 
-  loginAdmin(credentials: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login/admin`, credentials)
-      .pipe(
-        catchError(this.handleError)
-      );
+  register(userData: any) {
+    return this.http.post(`${this.apiUrl}/register`, userData);
   }
 
-  loginCliente(credentials: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login/cliente`, credentials)
-      .pipe(
-        catchError(this.handleError)
-      );
-  }
-
-  loginEmpleado(credentials: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login/empleado`, credentials)
-      .pipe(
-        catchError(this.handleError)
-      );
-  }
-
-  private handleError(error: any) {
-    // Handle error
-    console.error('An error occurred:', error);
-    return throwError('Something bad happened; please try again later.');
+  login(credentials: any) {
+    return this.http.post(`${this.apiUrl}/login`, credentials);
   }
 }

@@ -15,9 +15,4 @@ class Modelo extends Model
     {
         return $this->belongsTo(Marca::class);
     }
-
-    public function precios()
-    {
-        return $this->hasMany(Precio::class);
-    }
 }
