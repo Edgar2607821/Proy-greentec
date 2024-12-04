@@ -40,18 +40,6 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-
-    // Guard para empleados
-        'empleado' => [
-            'driver' => 'session',
-            'provider' => 'empleados',
-        ],
-
-    // Guard para clientes
-        'cliente' => [
-            'driver' => 'session',
-            'provider' => 'clientes',
-        ],
     ],
 
     /*
@@ -76,15 +64,7 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
-        'empleados' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Empleado::class,
-        ],
-    
-        'clientes' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Cliente::class,
-        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('precios', function (Blueprint $table) {
+        Schema::create('marcas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('modelo_id')->constrained()->onDelete('cascade');
-            $table->float('preciokg', 8, 2)->default(0.0);
             $table->timestamps();
         });
     }
@@ -24,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('precios');
+        Schema::dropIfExists('marcas');
     }
 };

@@ -1,35 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;1,800&family=Freeman&family=Poetsen+One&display=swap');
-.back-button {
-    position: absolute;
-    top: 20px;  
-    left: 20px;
-}
-.Iniciar{
-    font-family: "Freeman", sans-serif;
-    font-size: 35px;
-    text-align: center;
-}
-.login-button {
-    display: inline-block;
-    padding: 10px 20px; /* Espaciado interno */
-    font-size: 18px; /* Tamaño de fuente */
-    color: #ffffff; /* Color del texto */
-    background-color: #75b82e; /* Color de fondo */
-    border: none; /* Sin borde */
-    border-radius: 15px; /* Bordes redondeados */
-    text-decoration: none; /* Sin subrayado */
-    transition: background-color 0.3s, transform 0.3s; /* Transiciones para hover y clic */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-    font-family: "Poetsen One", sans-serif;
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .Iniciar{
+            font-family: "Freeman", sans-serif;
+            font-size: 35px;
+            text-align: center;
+        }
+        .login-button {
+            display: inline-block;
+            padding: 10px 20px; /* Espaciado interno */
+            font-size: 18px; /* Tamaño de fuente */
+            color: #ffffff; /* Color del texto */
+            background-color: #75b82e; /* Color de fondo */
+            border: none; /* Sin borde */
+            border-radius: 15px; /* Bordes redondeados */
+            text-decoration: none; /* Sin subrayado */
+            transition: background-color 0.3s, transform 0.3s; /* Transiciones para hover y clic */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+            font-family: "Poetsen One", sans-serif;
 
-}
+        }
 
-.login-button:hover {
-    background-color: #67a227; /* Color de fondo en hover */
-    transform: translateY(-2px); /* Mover hacia arriba en hover */
-}
+        .login-button:hover {
+            background-color: #67a227; /* Color de fondo en hover */
+            transform: translateY(-2px); /* Mover hacia arriba en hover */
+        }
 
-.login-button:active {
-    background-color: #4a751c; /* Color de fondo en clic */
-    transform: translateY(0); /* Reset transform en clic */
-}
+        .login-button:active {
+            background-color: #4a751c; /* Color de fondo en clic */
+            transform: translateY(0); /* Reset transform en clic */
+        }

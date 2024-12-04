@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('empleados', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 20);
-            $table->string('apellidos', 50);
+            $table->string('nombre');
+            $table->string('apellidos');
             $table->integer('edad');
-            $table->enum('sexo', ['Femenino', 'Masculino', 'Otro']);
-            $table->string('correo', 30);
-            $table->string('contra', 20);
-            $table->string('departamento', 20);
-            $table->string('puesto', 20);
-            $table->timestamp('fecha')->useCurrent();
-            $table->string('num_telefono', 20);
+            $table->enum('sexo', ['M', 'F']);
+            $table->string('correo')->unique();
+            $table->string('contra'); // Se usará para almacenar la contraseña encriptada
+            $table->string('departamento');
+            $table->string('puesto');
+            $table->date('fecha'); // Fecha de alta o inicio de labores
+            $table->string('num_telefono', 15);
             $table->timestamps();
         });
     }

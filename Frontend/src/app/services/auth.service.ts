@@ -12,11 +12,8 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  register(userData: any) {
-    return this.http.post(`${this.apiUrl}/register`, userData);
-  }
-
-  login(credentials: any) {
-    return this.http.post(`${this.apiUrl}/login`, credentials);
+  // Método para registrar un cliente
+  registerCliente(cliente: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/cliente/register`, cliente);
   }
 }

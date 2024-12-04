@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tipo_disps', function (Blueprint $table) {
+        Schema::create('precios', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('dispositivo_id')->constrained()->onDelete('cascade');
-            $table->string('tipo', 30);
             $table->timestamps();
         });
     }
@@ -24,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tipo_disps');
+        Schema::dropIfExists('precios');
     }
 };

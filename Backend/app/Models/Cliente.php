@@ -27,8 +27,7 @@ class Cliente extends Model
         'correo',
         'contra',
         'telefono',
-        'referencias',
-        'empleado_id'
+        'referencias'
     ];
 
     protected $hidden = [
