@@ -17,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class AgregartipoComponent implements OnInit{
 
   tipoDispForm: FormGroup;
+  dispositivos: any[] = []; // Declaración de la propiedad
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.tipoDispForm = this.fb.group({
@@ -25,7 +26,9 @@ export class AgregartipoComponent implements OnInit{
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cargarDispositivos(); // Cargar dispositivos al inicializar
+  }
 
   // Método para registrar un tipo de dispositivo
   registrarTipoDisp() {
@@ -46,6 +49,17 @@ export class AgregartipoComponent implements OnInit{
     }
   }
 
+  // Método para cargar dispositivos desde el servicio
+  cargarDispositivos() {
+    this.authService.obtenerDispositivos().subscribe({
+      next: (response) => {
+        this.dispositivos = response.data; // Asignar los datos de la respuesta
+      },
+      error: (err) => {
+        console.error('Error al cargar los dispositivos:', err);
+      },
+    });
+  }
 
   goToHome() {
     this.router.navigate(['/Catalogo']);  // Redirige a la ruta raíz (AppComponent)
