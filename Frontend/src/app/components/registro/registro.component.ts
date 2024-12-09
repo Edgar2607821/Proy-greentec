@@ -7,9 +7,6 @@ import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
-
-
-
 @Component({
   selector: 'app-registro',
   standalone: true,
@@ -17,8 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.css'
 })
-
-
 export class RegistroComponent {
   registroForm: FormGroup; // Formulario Reactivo
 
@@ -44,18 +39,39 @@ export class RegistroComponent {
   // Método para registrar un cliente
   register() {
     if (this.registroForm.valid) {
-      this.authService.registerCliente(this.registroForm.value).subscribe({
-        next: (response) => {
-          alert('Registro exitoso');
-          this.router.navigate(['/login']);
+      // Obtener el token CSRF antes de realizar la solicitud de registro
+      this.authService.getCsrfToken().subscribe({
+        next: () => {
+          // Una vez que se obtiene el token CSRF, hacemos el registro
+          this.authService.registerCliente(this.registroForm.value).subscribe({
+            next: (response) => {
+              alert('Registro exitoso');
+              this.router.navigate(['/login']);
+            },
+            error: (err) => {
+              console.error(err);
+              alert('Error al registrar, verifica los datos e inténtalo nuevamente.');
+            },
+          });
         },
         error: (err) => {
-          console.error(err);
-          alert('Error al registrar, verifica los datos e inténtalo nuevamente.');
-        },
+          console.error('Error al obtener el token CSRF:', err);
+          alert('Error al obtener el token CSRF.');
+        }
       });
     } else {
       alert('Formulario inválido. Por favor revisa los campos.');
     }
+  }
+
+  checkEmail() {
+    const correo = this.registroForm.get('correo')?.value;
+    this.authService.checkEmailExists(correo).subscribe((response: any) => {
+      if (response.exists) {
+        alert('El correo ya está registrado.');
+      } else {
+        this.register(); // Llama a tu método de registro
+      }
+    });
   }
 }

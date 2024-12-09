@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'api' => [
+        'driver' => 'token', // Asegúrate de que el driver es el correcto (puede ser sanctum o jwt)
+        'provider' => 'users',
+        'hash' => false,
+        ],
     ],
 
     /*

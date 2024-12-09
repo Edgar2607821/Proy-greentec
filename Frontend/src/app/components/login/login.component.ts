@@ -5,12 +5,15 @@ import { LoginEmpleadosComponent } from '../login-empleados/login-empleados.comp
 import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common'; // Importa CommonModule
+import { CommonModule } from '@angular/common'; // Importa CommonModule\
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { AuthService } from '../../services/auth.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, LoginEmpleadosComponent,RouterLinkActive, RouterLink, RouterOutlet,CommonModule],
+  imports: [FormsModule,CommonModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -25,8 +28,7 @@ export class LoginComponent {
     console.log('Formulario enviado');
     // Aquí puedes agregar la lógica para autenticar al usuario o manejar los datos
   }
-  constructor(private router: Router) {}
-  
+
   goToHome() {
     this.router.navigate(['/QuienesSomos']);  // Redirige a la ruta raíz (AppComponent)
   }
@@ -41,26 +43,42 @@ export class LoginComponent {
     this.router.navigate(['/LoginAdmin']);
   }
 
-  LoginEmpleado() {
-    this.router.navigate(['/LoginEmpleado']);  // Redirige a la ruta raíz (AppComponent)
-  }
-  login() {
-    // Usuarios predefinidos para la simulación
-    const validUsers = [
-      { username: 'usuario', password: '123456' },
-      { username: 'user1', password: 'password1' }
-    ];
+  loginForm: FormGroup;
 
-    // Verificar si las credenciales coinciden
-    const user = validUsers.find(u => u.username === this.username && u.password === this.password);
-    if (user) {
-      // Redirigir a la página deseada
-      this.router.navigate(['/Usuariohome']);
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
+    this.loginForm = this.fb.group({
+      correo: ['', [Validators.required, Validators.email]], // Campo correo con validaciones
+      password: ['', [Validators.required, Validators.minLength(6)]], // Campo password con validaciones
+    });
+
+  }
+
+  ngOnInit(): void {}
+
+  onLogin() {
+    if (this.loginForm.valid) {
+      const loginData = {
+        correo: this.loginForm.value.correo,
+        contra: this.loginForm.value.password, // Cambiar el nombre de password a contra
+      };
+
+      this.authService.loginCliente(loginData).subscribe({
+        next: (response) => {
+
+          localStorage.setItem('token', response.token);
+          this.router.navigate(['/Usuariohome']);
+        },
+        error: (err) => {
+          this.errorMessage = err.error.message || 'Error al iniciar sesión';
+        },
+      });
     } else {
-      // Mostrar mensaje de error si las credenciales son incorrectas
-      this.errorMessage = 'Usuario o contraseña incorrectos';
+      alert('Por favor, completa el formulario correctamente.');
     }
   }
-
 
 }

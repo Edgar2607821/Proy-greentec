@@ -4,6 +4,11 @@ import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+
+
 @Component({
   selector: 'app-usuarioperfil',
   standalone: true,
@@ -12,33 +17,65 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./usuarioperfil.component.css']
 })
 export class UsuarioperfilComponent {
-  constructor(private router: Router) {}
+
 
   goToHome() {
 
     this.router.navigate(['/']);  // Redirige a la ruta raíz (AppComponent)
   }
-  // Propiedades para simular datos de un cliente
-  cliente = {
-    nombre: 'Juan',
-    apellidos: 'Pérez',
-    edad: 30,
-    sexo: 'Masculino',
-    estado: 'Ciudad de México',
-    municipio: 'Benito Juárez',
-    cp: '03100',
-    calle: 'Avenida Insurgentes',
-    nExt: '123',
-    nInt: '4B',
-    colonia: 'Del Valle',
-    correo: 'juan.perez@example.com',
-    telefono: '555-123-4567',
-    referencias: 'Cerca del parque central'
-  };
 
-  // Método de ejemplo para manejar el envío del formulario
-  guardarPerfil() {
-    console.log('Datos guardados:', this.cliente);
-    alert('Datos guardados correctamente (solo para diseño)');
+  perfilForm: FormGroup;
+
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+    // Inicializa el formulario con valores vacíos
+    this.perfilForm = this.fb.group({
+      nombre: [{ value: '', disabled: true }],
+      apellidos: [{ value: '', disabled: true }],
+      edad: [''],
+      sexo: [''],
+      estado: [''],
+      municipio: [''],
+      cp: [''],
+      calle: [''],
+      nExt: [''],
+      nInt: [''],
+      colonia: [''],
+      correo: [{ value: '', disabled: true }],
+      telefono: [''],
+      referencias: ['']
+    });
+  }
+
+  ngOnInit(): void {
+    this.cargarPerfil(); // Carga el perfil al iniciar el componente
+  }
+
+
+  // Carga los datos del perfil utilizando el servicio AuthService
+  cargarPerfil(): void {
+    this.authService.getClienteProfile().subscribe(
+      (response) => {
+        // Asigna los valores al formulario
+        this.perfilForm.patchValue(response);
+      },
+      (error) => {
+        console.error('Error al cargar el perfil:', error);
+      }
+    );
+  }
+
+  // Guarda los datos del perfil utilizando el servicio AuthService
+  guardarPerfil(): void {
+    if (this.perfilForm.valid) {
+      const data = this.perfilForm.getRawValue(); // Obtén los valores, incluidos los campos deshabilitados
+      this.authService.updateClienteProfile(data).subscribe(
+        (response) => {
+          console.log('Perfil guardado correctamente:', response);
+        },
+        (error) => {
+          console.error('Error al guardar el perfil:', error);
+        }
+      );
+    }
   }
 }
