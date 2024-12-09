@@ -86,30 +86,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Nombre del Empleado</td>
-                        <td>Apellidos del Empleado</td>
-                        <td>Edad</td>
-                        <td>Sexo</td>
-                        <td>Correo</td>
-                        <td>Departamento</td>
-                        <td>Puesto</td>
-                        <td>Fecha de Ingreso</td>
-                        <td>Número de Teléfono</td>
-                        <td>
-                            <button class="buttonEdit">
-                                Editar
-                            </button>
-                            <button class="buttonElim">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
+                  <tr *ngFor="let empleado of empleados">
+                    <td>{{ empleado.nombre }}</td>
+                    <td>{{ empleado.apellidos }}</td>
+                    <td>{{ empleado.edad }}</td>
+                    <td>{{ empleado.sexo }}</td>
+                    <td>{{ empleado.correo }}</td>
+                    <td>{{ empleado.departamento }}</td>
+                    <td>{{ empleado.puesto }}</td>
+                    <td>{{ empleado.fecha }}</td>
+                    <td>{{ empleado.num_telefono }}</td>
+                    <td>
+                      <button class="buttonEdit" (click)="editarEmpleado(empleado)">Editar</button>
+                      <button class="buttonElim" (click)="eliminarEmpleado(empleado.id)">Eliminar</button>
+                    </td>
+                  </tr>
             </table>
         </div>
         <div class="contadd">
-            <button class="buttonAdd">
+            <button (click)="goRegistro()" class="buttonAdd">
                 Añadir
             </button>
         </div>

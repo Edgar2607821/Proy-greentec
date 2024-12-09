@@ -81,8 +81,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Nombre del Dispositivo</td>
+                <tr *ngFor="let dispositivo of dispositivos">
+                    <td>{{ dispositivo.nombre }}</td>
                     <td>Tipo de Dispositivo</td>
                     <td>Marca</td>
                     <td>Modelo</td>
@@ -100,10 +100,10 @@
         </table>
     </div>
     <div class="contadd">
-        <button class="buttonAdd">
+        <button routerLink="/CrearDisp" class="buttonAdd">
             <img src="assets/img/Dispositivos.png" style="width: 40px; float: left;"> Agregar Dispositivo
         </button>
-        <button class="buttonAdd">
+        <button routerLink="/AgregarDisp" class="buttonAdd">
             <img src="assets/img/tipo.png" style="width: 40px; float: left;"> Agregar Tipo
         </button>
         <button class="buttonAdd">

@@ -1,0 +1,90 @@
+/* Fuente */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+
+/* Contenedor principal */
+.bien {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+}
+
+/* Título */
+h1 {
+    color: #3498db;
+    font-family: 'Freeman', sans-serif;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Etiquetas */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Campos de formulario */
+input[type="text"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Botón guardar */
+.buttonAdd {
+    width: 200px;
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #75b82e;
+    border: none;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.buttonAdd:hover {
+    background-color: #588a22;
+}
+
+.buttonAdd:active {
+    background-color: #345214;
+}
+
+/* Botón cancelar */
+.buttonEdit {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #393be4;
+    border: none;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.buttonEdit:hover {
+    background-color: #2a2dac;
+}
+
+.buttonEdit:active {
+    background-color: #171861;
+}

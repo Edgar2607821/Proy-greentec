@@ -91,27 +91,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Nombre del Cliente</td>
-                        <td>Apellidos del Cliente</td>
-                        <td>Edad</td>
-                        <td>Sexo</td>
-                        <td>Estado</td>
-                        <td>Municipio</td>
-                        <td>CP</td>
-                        <td>Calle</td>
-                        <td>Número Exterior</td>
-                        <td>Número Interior</td>
-                        <td>Colonia</td>
-                        <td>Correo</td>
-                        <td>Teléfono</td>
-                        <td>Referencias</td>
-                        <td>
-                            <button class="buttonElim">
-                                Eliminar
-                            </button>
-                        </td>
-                    </tr>
+                  <tr *ngFor="let cliente of clientes">
+                    <td>{{ cliente.nombre }}</td>
+                    <td>{{ cliente.apellidos }}</td>
+                    <td>{{ cliente.edad }}</td>
+                    <td>{{ cliente.sexo }}</td>
+                    <td>{{ cliente.estado }}</td>
+                    <td>{{ cliente.municipio }}</td>
+                    <td>{{ cliente.cp }}</td>
+                    <td>{{ cliente.calle }}</td>
+                    <td>{{ cliente.nExt }}</td>
+                    <td>{{ cliente.nInt }}</td>
+                    <td>{{ cliente.colonia }}</td>
+                    <td>{{ cliente.correo }}</td>
+                    <td>{{ cliente.telefono }}</td>
+                    <td>{{ cliente.referencias }}</td>
+                    <td>
+                      <button class="buttonElim" (click)="eliminarCliente(cliente.id)">
+                        Eliminar
+                    </button>
+                    </td>
+                  </tr>
                 </tbody>
             </table>
         </div>

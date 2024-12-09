@@ -1,3 +1,7 @@
+/* Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;1,800&family=Poetsen+One&display=swap');
@@ -175,180 +179,46 @@ td {
 }
 
 
-
-
-.bien {
-    width: 90%;
-    height: 500px;
-    margin-top: 100px;
-    margin-left: 150px;
-    margin-right: auto;
-    box-shadow: 0px 0px 10px rgb(105, 105, 105);
-    border-radius: 10px;
-    text-align: center;
+/* Formulario principal */
+form {
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 120px;
     padding: 20px;
-    background-color: #fff;
-    height: 750px;
-}
-
-.table-container {
-    max-height: 700px;
-    /* Ajusta la altura máxima según tus necesidades */
-    overflow-y: auto;
     border: 1px solid #ccc;
-    padding: 10px;
     border-radius: 10px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
     background-color: white;
-    text-align: justify;
-}
-
-th {
-    font-family: "Freeman", sans-serif;
-    font-size: 25px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-}
-
-td {
-    font-size: 20px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
     font-family: 'Nunito', sans-serif;
-}
-
-
-.buttonEdit {
-    display: inline-block;
-    padding: 10px 20px;
-    /* Espaciado interno */
-    font-size: 18px;
-    /* Tamaño de fuente */
-    color: #ffffff;
-    /* Color del texto */
-    background-color: #393be4;
-    /* Color de fondo */
-    border: none;
-    /* Sin borde */
-    border-radius: 15px;
-    /* Bordes redondeados */
-    text-decoration: none;
-    /* Sin subrayado */
-    transition: background-color 0.3s, transform 0.3s;
-    /* Transiciones para hover y clic */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Sombra */
-    font-family: "Poetsen One", sans-serif;
-    margin: 2px;
-    width: 150px;
-}
-
-/* Estilos para el botón al pasar el cursor sobre él */
-.buttonEdit:hover {
-    background-color: #2a2dac;
-    color: white;
-    border-color: #2a2dac;
-}
-
-/* Estilos para el botón cuando está activo */
-.buttonEdit:active {
-    background-color: #171861;
-    color: white;
-    border-color: #171861;
-}
-
-.buttonElim {
-    width: 150px;
-    display: inline-block;
-    padding: 10px 15px;
-    /* Espaciado interno */
-    font-size: 18px;
-    /* Tamaño de fuente */
-    color: #ffffff;
-    /* Color del texto */
-    background-color: #ec3b3b;
-    /* Color de fondo */
-    border: none;
-    /* Sin borde */
-    border-radius: 15px;
-    /* Bordes redondeados */
-    text-decoration: none;
-    /* Sin subrayado */
-    transition: background-color 0.3s, transform 0.3s;
-    /* Transiciones para hover y clic */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Sombra */
-    font-family: "Poetsen One", sans-serif;
-    margin: 2px;
-}
-
-/* Estilos para el botón al pasar el cursor sobre él */
-.buttonElim:hover {
-    background-color: #942525;
-    color: white;
-    border-color: #942525;
-}
-
-/* Estilos para el botón cuando está activo */
-.buttonElim:active {
-    background-color: #5f1717;
-    color: white;
-    border-color: #5f1717;
-}
-
-.buttonAdd {
-    width: 200px;
-    display: inline-block;
-    padding: 10px 15px;
-    /* Espaciado interno */
     font-size: 25px;
-    /* Tamaño de fuente */
-    color: #ffffff;
-    /* Color del texto */
-    background-color: #75b82e;
-    /* Color de fondo */
-    border: none;
-    /* Sin borde */
-    border-radius: 15px;
-    /* Bordes redondeados */
-    text-decoration: none;
-    /* Sin subrayado */
-    transition: background-color 0.3s, transform 0.3s;
-    /* Transiciones para hover y clic */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Sombra */
-    font-family: "Poetsen One", sans-serif;
-    margin: 2px;
-
-
+    height: 600px;
 }
 
-/* Estilos para el botón al pasar el cursor sobre él */
-.buttonAdd:hover {
-    background-color: #588a22;
-    color: white;
-    border-color: #588a22;
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-/* Estilos para el botón cuando está activo */
-.buttonAdd:active {
-    background-color: #345214;
-    color: white;
-    border-color: #345214;
+.column {
+    width: 50%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    float: left;
 }
 
-.contadd {
-
-    margin-right: 1500PX;
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
 }
 
-h1 {
-    font-family: "Freeman", sans-serif;
-}
-
+/* Inputs */
 input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
 select {
     width: calc(100% - 20px);
     padding: 8px;
@@ -356,4 +226,106 @@ select {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
+}
+
+/* Botón de envío */
+input[type="submit"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Botón de acción principal */
+.buttonAdd {
+    width: 200px;
+    display: inline-block;
+    padding: 10px 15px; /* Espaciado interno */
+    font-size: 20px; /* Tamaño de fuente */
+    color: #ffffff; /* Color del texto */
+    background-color: #75b82e; /* Color de fondo */
+    border: none; /* Sin borde */
+    border-radius: 15px; /* Bordes redondeados */
+    text-decoration: none; /* Sin subrayado */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones para hover y clic */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    font-family: "Poetsen One", sans-serif;
+    margin: 2px;
+}
+
+.buttonAdd:hover {
+    background-color: #588a22;
+    color: white;
+    border-color: #588a22;
+}
+
+.buttonAdd:active {
+    background-color: #345214;
+    color: white;
+    border-color: #345214;
+}
+
+/* Botón de edición */
+.buttonEdit {
+    display: inline-block;
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 20px; /* Tamaño de fuente */
+    color: #ffffff; /* Color del texto */
+    background-color: #393be4; /* Color de fondo */
+    border: none; /* Sin borde */
+    border-radius: 15px; /* Bordes redondeados */
+    text-decoration: none; /* Sin subrayado */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones para hover y clic */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    font-family: "Poetsen One", sans-serif;
+    margin: 2px;
+    width: 200px;
+    height: 59px;
+}
+
+.buttonEdit:hover {
+    background-color: #2a2dac;
+    color: white;
+    border-color: #2a2dac;
+}
+
+.buttonEdit:active {
+    background-color: #171861;
+    color: white;
+    border-color: #171861;
+}
+
+/* Título principal */
+h1 {
+    color: #3498db;
+    font-family: "Freeman", sans-serif;
+    font-size: 55px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+/* Contenedor de botones */
+.contadd {
+    display: flex;
+    justify-content: flex-start; /* Ajusta según sea necesario (flex-start, center, flex-end) */
+    flex-wrap: wrap; /* Permite que los botones se envuelvan si el espacio es insuficiente */
+    gap: 10px; /* Espacio entre los botones */
+    margin: 10px 0; /* Espaciado externo superior e inferior */
+}
+
+/* Estilos para mensajes de error */
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: -8px;
+    margin-bottom: 10px;
 }

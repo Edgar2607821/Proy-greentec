@@ -1,0 +1,161 @@
+<section style="background-color: #393be4; min-height: 100vh;">
+  <nav>
+    <ul>
+      <!-- Enlace con routerLink para enrutamiento en Angular -->
+      <li>
+        <a routerLink="/" class="logo">
+          <img class="logo1" src="assets/img/logo.jpeg" alt="Logo GreenTec">
+          <span class="nav-item">GREENTEC</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/Principal" routerLinkActive="active" class="home">
+          <i class="fas fa-home"></i>
+          <span class="nav-item">Principal</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/Usuarios" routerLinkActive="active" class="home">
+          <i class="fas fa-users"></i>
+          <span class="nav-item">Usuarios</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/Recolectores" routerLinkActive="active" class="home">
+          <i class="fas fa-user-shield"></i>
+          <span class="nav-item">Recolectores</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/Rutas" routerLinkActive="active" class="home">
+          <i class="fas fa-map-marked-alt"></i>
+          <span class="nav-item">Rutas</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/Productos" routerLinkActive="active" class="home">
+          <i class="fas fa-box-open"></i>
+          <span class="nav-item">Productos</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/Catalogo" routerLinkActive="active" class="home">
+          <i class="fas fa-book"></i>
+          <span class="nav-item">Catálogo</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/AsignarRutas" routerLinkActive="active" class="home">
+          <i class="fas fa-user-plus"></i>
+          <span class="nav-item">Asignar Rutas</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/Estadisticas" routerLinkActive="active" class="home">
+          <i class="fas fa-chart-bar"></i>
+          <span class="nav-item">Estadísticas</span>
+        </a>
+      </li>
+      <li>
+        <!-- Evento click para salir -->
+        <a (click)="goToHome()" class="logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item">Salir</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <form [formGroup]="registroEmpleadoForm" (ngSubmit)="registerEmpleado()" class="form-container">
+    <h1>Registrar Empleado</h1>
+
+    <div class="column">
+      <label for="id_nombre">Nombre:</label>
+      <input type="text" id="id_nombre" formControlName="nombre" placeholder="Ingrese el nombre" required>
+      <small *ngIf="registroEmpleadoForm.get('nombre')?.invalid && registroEmpleadoForm.get('nombre')?.touched">
+        <span *ngIf="registroEmpleadoForm.get('nombre')?.hasError('required')">El nombre es obligatorio.</span>
+        <span *ngIf="registroEmpleadoForm.get('nombre')?.hasError('minlength')">Debe tener al menos 3 caracteres.</span>
+      </small>
+    </div>
+
+    <div class="column">
+      <label for="id_apellidos">Apellidos:</label>
+      <input type="text" id="id_apellidos" formControlName="apellidos" placeholder="Ingrese los apellidos" required>
+      <small *ngIf="registroEmpleadoForm.get('apellidos')?.invalid && registroEmpleadoForm.get('apellidos')?.touched">
+        <span *ngIf="registroEmpleadoForm.get('apellidos')?.hasError('required')">Los apellidos son obligatorios.</span>
+        <span *ngIf="registroEmpleadoForm.get('apellidos')?.hasError('minlength')">Debe tener al menos 3 caracteres.</span>
+      </small>
+    </div>
+
+    <div class="column">
+      <label for="id_edad">Edad:</label>
+      <input type="number" id="id_edad" formControlName="edad" placeholder="Ingrese la edad" required>
+      <small *ngIf="registroEmpleadoForm.get('edad')?.invalid && registroEmpleadoForm.get('edad')?.touched">
+        <span *ngIf="registroEmpleadoForm.get('edad')?.hasError('required')">La edad es obligatoria.</span>
+        <span *ngIf="registroEmpleadoForm.get('edad')?.hasError('min')">Debe ser mayor a 18 años.</span>
+      </small>
+    </div>
+
+    <div class="column">
+      <label for="id_sexo">Sexo:</label>
+      <select id="id_sexo" formControlName="sexo" required>
+        <option value="">Seleccionar</option>
+        <option value="M">Masculino</option>
+        <option value="F">Femenino</option>
+      </select>
+      <small *ngIf="registroEmpleadoForm.get('sexo')?.invalid && registroEmpleadoForm.get('sexo')?.touched">
+        Seleccione un sexo válido.
+      </small>
+    </div>
+
+    <div class="column">
+      <label for="id_correo">Correo:</label>
+      <input type="email" id="id_correo" formControlName="correo" placeholder="Ingrese el correo" required>
+      <small *ngIf="registroEmpleadoForm.get('correo')?.invalid && registroEmpleadoForm.get('correo')?.touched">
+        <span *ngIf="registroEmpleadoForm.get('correo')?.hasError('required')">El correo es obligatorio.</span>
+        <span *ngIf="registroEmpleadoForm.get('correo')?.hasError('email')">Ingrese un correo válido.</span>
+      </small>
+    </div>
+
+    <div class="column">
+      <label for="id_contra">Contraseña:</label>
+      <input type="password" id="id_contra" formControlName="contra" placeholder="Ingrese la contraseña" required>
+      <small *ngIf="registroEmpleadoForm.get('contra')?.invalid && registroEmpleadoForm.get('contra')?.touched">
+        <span *ngIf="registroEmpleadoForm.get('contra')?.hasError('required')">La contraseña es obligatoria.</span>
+        <span *ngIf="registroEmpleadoForm.get('contra')?.hasError('minlength')">Debe tener al menos 6 caracteres.</span>
+      </small>
+    </div>
+
+    <div class="column">
+      <label for="id_departamento">Departamento:</label>
+      <input type="text" id="id_departamento" formControlName="departamento" placeholder="Ingrese el departamento" required>
+      <small *ngIf="registroEmpleadoForm.get('departamento')?.invalid && registroEmpleadoForm.get('departamento')?.touched">
+        El departamento es obligatorio.
+      </small>
+    </div>
+
+    <div class="column">
+      <label for="id_puesto">Puesto:</label>
+      <input type="text" id="id_puesto" formControlName="puesto" placeholder="Ingrese el puesto" required>
+      <small *ngIf="registroEmpleadoForm.get('puesto')?.invalid && registroEmpleadoForm.get('puesto')?.touched">
+        El puesto es obligatorio.
+      </small>
+    </div>
+
+    <div class="column">
+      <label for="id_num_telefono">Número de Teléfono:</label>
+      <input type="tel" id="id_num_telefono" formControlName="num_telefono" placeholder="Ingrese el número de teléfono" required>
+      <small *ngIf="registroEmpleadoForm.get('num_telefono')?.invalid && registroEmpleadoForm.get('num_telefono')?.touched">
+        <span *ngIf="registroEmpleadoForm.get('num_telefono')?.hasError('required')">El número es obligatorio.</span>
+        <span *ngIf="registroEmpleadoForm.get('num_telefono')?.hasError('pattern')">Debe contener 10 dígitos.</span>
+      </small>
+    </div>
+
+    <br>
+    <button class="buttonAdd" type="submit" [disabled]="registroEmpleadoForm.invalid">
+      Registrar
+    </button>
+  </form>
+
+
+</section>

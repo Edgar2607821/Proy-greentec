@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\TipoDisp;
 use App\Models\Dispositivo;
-use Illuminate\Http\Request;
+
 
 class TipoDispController extends Controller
 {
-    // Mostrar todos los tipos de dispositivos con el dispositivo asociado
+    //
     public function index()
     {
         $tipos = TipoDisp::with('dispositivo')->get(); // Incluye el dispositivo relacionado

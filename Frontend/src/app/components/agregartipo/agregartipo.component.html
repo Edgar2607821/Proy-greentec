@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Agregar Tipo de Dispositivo</h1>
+  <form [formGroup]="tipoDispForm" (ngSubmit)="registrarTipoDisp()">
+    <!-- Selección de dispositivo -->
+    <div class="form-group">
+      <label for="dispositivo_id">Dispositivo</label>
+      <select id="dispositivo_id" formControlName="dispositivo_id" required>
+        <option value="">Seleccione un dispositivo</option>
+        <option *ngFor="let dispositivo of dispositivos" [value]="dispositivo.id">
+          {{ dispositivo.nombre }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Campo para el tipo -->
+    <div class="form-group">
+      <label for="tipo">Tipo de Dispositivo</label>
+      <input
+        type="text"
+        id="tipo"
+        formControlName="tipo"
+        placeholder="Ingrese el tipo de dispositivo"
+        required
+      />
+    </div>
+
+    <!-- Botones -->
+    <div class="form-actions">
+      <button type="submit" [disabled]="tipoDispForm.invalid">Guardar</button>
+      <button type="button" (click)="goToHome()">Cancelar</button>
+    </div>
+  </form>
+</div>

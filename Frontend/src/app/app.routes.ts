@@ -25,6 +25,9 @@ import { EstadisticasComponent } from './components/estadisticas/estadisticas.co
 import { UsuariohomeComponent } from './components/usuariohome/usuariohome.component';
 import { UsuarioordenComponent } from './components/usuarioorden/usuarioorden.component';
 import { UsuarioperfilComponent } from './components/usuarioperfil/usuarioperfil.component';
+import { RegistrarEmpComponent } from './components/registrar-emp/registrar-emp.component';
+import { CreardispositivoComponent } from './components/creardispositivo/creardispositivo.component';
+import { AgregartipoComponent } from './components/agregartipo/agregartipo.component';
 
 
 export const routes: Routes = [
@@ -51,8 +54,10 @@ export const routes: Routes = [
     { path: 'RecolectorArchivo', component:RecolectorArchivoComponent},
     { path: 'Usuariohome', component:UsuariohomeComponent},
     { path: 'Usuarioorden', component:UsuarioordenComponent},
-    { path: 'Usuarioperfil',component:UsuarioperfilComponent}
-    
+    { path: 'Usuarioperfil',component:UsuarioperfilComponent},
+    { path: 'RegistroEmp',component:RegistrarEmpComponent},
+    { path: 'CrearDisp',component:CreardispositivoComponent},
+    { path: 'AgregarTipDisp', component:AgregartipoComponent}
 
 
 ];

@@ -19,7 +19,7 @@ export class AuthService {
   // Método para registrar un cliente
   registerCliente(cliente: any): Observable<any> {
     this.getCsrfToken();
-    return this.http.post(`${this.apiUrl}/cliente/register`, cliente, {
+    return this.http.post(`${this.apiUrl}/register`, cliente, {
       withCredentials: true, // Esto asegura que las cookies sean enviadas
     });
   }
@@ -41,17 +41,78 @@ export class AuthService {
     return this.http.get(`${this.apiUrl}/cliente/profile`, { headers });
   }
 
-
   updateClienteProfile(data: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/cliente/profile`, data);
   }
 
   loginCliente(credentials: { correo: string; contra: string }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/cliente/login`, credentials);
+    return this.http.post(`${this.apiUrl}/login`, credentials);
   }
 
   getCsrfToken(): Observable<any> {
     return this.http.get('http://localhost:8000/sanctum/csrf-cookie', { withCredentials: true });
   }
 
+  getClientes(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/clientes`); // Asegúrate de que esta ruta sea correcta
+  }
+
+// Método para obtener todos los empleados
+
+getEmpleados(): Observable<any[]> {
+  return this.http.get<any[]>('http://localhost:8000/api/empleados');
 }
+
+// Método para obtener un empleado por ID
+getEmpleadoById(id: number) {
+  return this.http.get(`http://localhost:8000/api/empleado/${id}`);
+}
+
+// Método para registrar un nuevo empleado
+registerEmpleado(empleado: any) {
+  return this.http.post('http://localhost:8000/api/empleado', empleado);
+}
+
+// Método para actualizar un empleado
+updateEmpleado(id: number, empleado: any) {
+  return this.http.put(`http://localhost:8000/api/empleado/${id}`, empleado);
+}
+
+// Método para eliminar un empleado
+deleteEmpleado(id: number) {
+  return this.http.delete(`http://localhost:8000/api/empleado/${id}`);
+}
+
+
+crearDispositivo(dispositivo: any): Observable<any> {
+  return this.http.post('http://localhost:8000/api/dispositivos', dispositivo);
+}
+
+// Otros métodos (opcional) para listar, editar, eliminar dispositivos
+obtenerDispositivos(): Observable<{ data: any[] }> {
+  return this.http.get<{ data: any[] }>(`${this.apiUrl}/dispositivos`);
+}
+
+obtenerTipos(): Observable<{ data: any[] }> {
+  return this.http.get<{ data: any[] }>(`${this.apiUrl}/tipos`);
+}
+
+// Crear un nuevo tipo de dispositivo
+crearTipo(data: { dispositivo_id: number; tipo: string }): Observable<any> {
+  return this.http.post(`${this.apiUrl}/tipos`, data);
+}
+
+// Editar un tipo de dispositivo
+editarTipo(id: number, data: { dispositivo_id: number; tipo: string }): Observable<any> {
+  return this.http.put(`${this.apiUrl}/tipos/${id}`, data);
+}
+
+// Eliminar un tipo de dispositivo
+eliminarTipo(id: number): Observable<any> {
+  return this.http.delete(`${this.apiUrl}/tipos/${id}`);
+}
+
+
+}
+
+

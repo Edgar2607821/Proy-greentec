@@ -10,168 +10,131 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function registerCliente(Request $request)
-    {
-        $request->validate([
-            'nombre' => 'required|string|max:255',
-            'apellidos' => 'required|string|max:255',
-            'sexo' => 'required|in:M,F',
-            'correo' => 'required|email|unique:clientes,correo',
-            'contra' => 'required|min:6',
-        ]);
+ // Registro del cliente
+ public function registerCliente(Request $request)
+ {
+     // Validar los datos que recibimos del cliente
+     $request->validate([
+         'nombre' => 'required|string|max:255',
+         'apellidos' => 'required|string|max:255',
+         'sexo' => 'required|in:M,F',
+         'correo' => 'required|email|unique:clientes,correo',
+         'contra' => 'required|min:6',
+     ]);
 
-        $cliente = Cliente::create([
-            'nombre' => $request->nombre,
-            'apellidos' => $request->apellidos,
-            'sexo' => $request->sexo,
-            'correo' => $request->correo,
-            'contra' => Hash::make($request->contra), // Contraseña encriptada
-        ]);
+     // Crear al nuevo cliente
+     $cliente = Cliente::create([
+         'nombre' => $request->nombre,
+         'apellidos' => $request->apellidos,
+         'sexo' => $request->sexo,
+         'correo' => $request->correo,
+         'contra' => Hash::make($request->contra), // Contraseña encriptada
+     ]);
 
-        return response()->json(['message' => 'Cliente registrado correctamente.', 'data' => $cliente]);
-    }
+     // Responder con un mensaje y los datos del cliente
+     return response()->json(['message' => 'Cliente registrado correctamente.', 'data' => $cliente]);
+ }
 
-    // Mostrar todos los clientes
-    public function getClientes()
-    {
-        $clientes = Cliente::all()->makeHidden(['contra']);
-        return response()->json($clientes);
+ // Login básico para obtener un cliente
+ public function loginCliente(Request $request)
+ {
+     // Validar los datos de login
+     $request->validate([
+         'correo' => 'required|email',
+         'contra' => 'required',
+     ]);
 
-    }
+     // Buscar al cliente con el correo proporcionado
+     $cliente = Cliente::where('correo', $request->correo)->first();
 
+     // Verificar si el cliente existe y la contraseña es correcta
+     if (!$cliente || !Hash::check($request->contra, $cliente->contra)) {
+         return response()->json(['message' => 'Correo o contraseña incorrectos'], 401);
+     }
+     $token = $cliente->createToken('auth_token')->plainTextToken;
+     // Si el login es exitoso, devolver los datos del cliente
+     return response()->json([
+         'message' => 'Inicio de sesión exitoso',
+         'token' => $token,
+         'data' => $cliente, // Datos del cliente logueado
+     ]);
+ }
 
+ // Obtener perfil del cliente logueado (sin token de seguridad)
+ public function getProfile(Request $request)
+ {
+     // Obtener los datos del usuario logueado
+     $cliente = Cliente::where('correo', $request->correo)->first();
 
-    public function getProfile(Request $request)
+     if (!$cliente) {
+         return response()->json(['message' => 'Cliente no encontrado'], 404);
+     }
+
+     // Devolver los datos del cliente logueado
+     return response()->json($cliente);
+ }
+
+ // Actualizar perfil de un cliente
+ public function updateProfile(Request $request)
+ {
+     // Validar que el cliente esté logueado
+     $cliente = Cliente::where('correo', $request->correo)->first();
+
+     if (!$cliente) {
+         return response()->json(['message' => 'Cliente no encontrado'], 404);
+     }
+
+     // Validar los datos que se van a actualizar
+     $request->validate([
+         'edad' => 'nullable|integer',
+         'sexo' => 'nullable|string',
+         'estado' => 'nullable|string',
+         'municipio' => 'nullable|string',
+         'cp' => 'nullable|string|max:10',
+         'calle' => 'nullable|string',
+         'nExt' => 'nullable|string',
+         'nInt' => 'nullable|string',
+         'colonia' => 'nullable|string',
+         'telefono' => 'nullable|string|max:15',
+         'referencias' => 'nullable|string',
+     ]);
+
+     // Actualizar el perfil del cliente
+     $cliente->update($request->all());
+
+     // Responder con los datos actualizados
+     return response()->json(['message' => 'Perfil actualizado correctamente.', 'data' => $cliente]);
+ }
+
+ // Eliminar un cliente
+ public function deleteCliente($id)
+ {
+     // Buscar al cliente por ID
+     $cliente = Cliente::find($id);
+
+     if (!$cliente) {
+         return response()->json(['message' => 'Cliente no encontrado'], 404);
+     }
+
+     // Eliminar al cliente
+     $cliente->delete();
+
+     return response()->json(['message' => 'Cliente eliminado correctamente.']);
+ }
+
+ // Verificar si un correo ya está registrado
+ public function checkEmail(Request $request)
+ {
+     $exists = Cliente::where('correo', $request->correo)->exists();
+     return response()->json(['exists' => $exists]);
+ }
+
+ public function getClientes()
 {
-    // Verificar si se recibe un token
-    \Log::info('Token recibido:', [$request->bearerToken()]);
+    // Obtener todos los clientes, ocultando la contraseña
+    $clientes = Cliente::all()->makeHidden(['contra']);
 
-    // Intentar obtener el cliente autenticado
-    $cliente = $request->user();
-
-    if (!$cliente) {
-        \Log::info('Cliente no autenticado');
-        return response()->json(['message' => 'Cliente no encontrado'], 404);
-    }
-
-    \Log::info('Cliente autenticado:', ['id' => $cliente->id, 'correo' => $cliente->correo]);
-
-    return response()->json($cliente);
+    // Retornar los clientes como respuesta en formato JSON
+    return response()->json($clientes);
 }
-
-
-
-
-    // Mostrar un cliente por ID
-    public function getClienteById($id)
-    {
-        $cliente = Cliente::find($id);
-
-        if (!$cliente) {
-            return response()->json(['message' => 'Cliente no encontrado'], 404);
-        }
-
-        return response()->json($cliente);
-    }
-
-    // Actualizar un cliente
-    public function updateProfile(Request $request)
-{
-    $cliente = Cliente::find(auth()->id());
-
-    $request->validate([
-        'edad' => 'nullable|integer',
-        'sexo' => 'nullable|string',
-        'estado' => 'nullable|string',
-        'municipio' => 'nullable|string',
-        'cp' => 'nullable|string|max:10',
-        'calle' => 'nullable|string',
-        'nExt' => 'nullable|string',
-        'nInt' => 'nullable|string',
-        'colonia' => 'nullable|string',
-        'telefono' => 'nullable|string|max:15',
-        'referencias' => 'nullable|string',
-    ]);
-
-    $cliente->update($request->all());
-
-    return response()->json(['message' => 'Perfil actualizado correctamente.', 'data' => $cliente]);
-}
-
-    // Eliminar un cliente
-    public function deleteCliente($id)
-    {
-        $cliente = Cliente::find($id);
-
-        if (!$cliente) {
-            return response()->json(['message' => 'Cliente no encontrado'], 404);
-        }
-
-        $cliente->delete();
-
-        return response()->json(['message' => 'Cliente eliminado correctamente.']);
-    }
-
-    // Login básico
-    public function loginCliente(Request $request)
-    {
-        $request->validate([
-            'correo' => 'required|email',
-            'contra' => 'required',
-        ]);
-
-        $cliente = Cliente::where('correo', $request->correo)->first();
-
-        if (!$cliente || !Hash::check($request->contra, $cliente->contra)) {
-            return response()->json(['message' => 'Correo o contraseña incorrectos'], 401);
-        }
-
-        // Generar token
-        $token = $cliente->createToken('auth_token')->plainTextToken;
-
-        return response()->json([
-            'message' => 'Inicio de sesión exitoso',
-            'token' => $token,
-            'data' => $cliente,
-        ]);
-    }
-
-
-    public function checkEmail(Request $request)
-{
-    $exists = Cliente::where('correo', $request->correo)->exists();
-    return response()->json(['exists' => $exists]);
-}
-
-public function completeProfile(Request $request)
-{
-    // Obtén el cliente autenticado
-    $cliente = Cliente::find(auth()->id()); // Esto asume que estás usando autenticación para obtener el cliente actual
-
-    if (!$cliente) {
-        return response()->json(['message' => 'Cliente no encontrado'], 404);
-    }
-
-    // Valida los datos adicionales
-    $request->validate([
-        'edad' => 'nullable|integer',
-        'estado' => 'nullable|string',
-        'municipio' => 'nullable|string',
-        'cp' => 'nullable|string|max:10',
-        'calle' => 'nullable|string',
-        'nExt' => 'nullable|string',
-        'nInt' => 'nullable|string',
-        'colonia' => 'nullable|string',
-        'telefono' => 'nullable|string|max:15',
-        'referencias' => 'nullable|string',
-    ]);
-
-    // Actualiza los datos del cliente
-    $cliente->update($request->all());
-
-    return response()->json(['message' => 'Perfil completado correctamente.', 'data' => $cliente]);
-}
-
-
-
 }

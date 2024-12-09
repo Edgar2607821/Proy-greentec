@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('tipo_disps', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('dispositivo_id'); // Relación con dispositivos
+            $table->string('tipo'); // Tipo de dispositivo
             $table->timestamps();
+
+            // Clave foránea para relacionar con dispositivos
+            $table->foreign('dispositivo_id')
+                  ->references('id')
+                  ->on('dispositivos')
+                  ->onDelete('cascade'); // Elimina tipos si se elimina el dispositivo
         });
     }
 

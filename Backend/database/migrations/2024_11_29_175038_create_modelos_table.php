@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('modelos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('marca_id'); // Relación con Marca
+            $table->string('nombre'); // Nombre del modelo
             $table->timestamps();
+
+            // Clave foránea para relacionar con Marca
+            $table->foreign('marca_id')
+                  ->references('id')
+                  ->on('marcas')
+                  ->onDelete('cascade'); // Elimina modelos si se elimina la marca
         });
     }
 

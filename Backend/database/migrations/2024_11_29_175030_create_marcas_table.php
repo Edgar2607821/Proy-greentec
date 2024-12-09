@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('marcas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('tipo_disp_id'); // Relación con TipoDisp
+            $table->string('nombre'); // Nombre de la marca
             $table->timestamps();
+
+            // Clave foránea para relacionar con TipoDisp
+            $table->foreign('tipo_disp_id')
+                  ->references('id')
+                  ->on('tipo_disps')
+                  ->onDelete('cascade'); // Elimina marcas si se elimina el tipo de dispositivo
         });
     }
 
